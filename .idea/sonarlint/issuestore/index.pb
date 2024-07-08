@@ -1,3 +1,35 @@
 
 h
 8app/src/main/java/com/mustafa/bankbranch/MainActivity.kt,6/2/621db4d11347231c05a5909ec60388b4fd1d9435
+P
+ app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
+D
+app/build.gradle.kts,d/2/d2a4383452aad84a18429a5844d31330a012a9e6
+I
+gradle/libs.versions.toml,d/7/d7595319a0658be6f1ed500ad590d42e4b28bc4f
+v
+Fapp/src/main/java/com/mustafa/bankbranch/presentation/BankBranchApp.kt,6/2/62dec650f81b89e112015bd1c4c55af6d1c4a68a
+n
+>app/src/main/java/com/mustafa/bankbranch/presentation/Route.kt,7/3/733c3c0cb8c4979dd266ad67394ea1c7d4db73c2
+t
+Dapp/src/main/java/com/mustafa/bankbranch/data/model/BranchListDto.kt,7/3/7374a670c9331ccd2ccae5d660cbc5e715d889eb
+x
+Happ/src/main/java/com/mustafa/bankbranch/data/model/BranchListDtoItem.kt,8/6/86be2436415b5bd6e0898201308ab80fa1252015
+q
+Aapp/src/main/java/com/mustafa/bankbranch/data/model/BranchItem.kt,f/a/faf2c133d938c0661ce2ad06ab0b1f3a19881a3f
+o
+?app/src/main/java/com/mustafa/bankbranch/data/dto/BranchItem.kt,a/2/a2fdb2c2e147e68f6e91318335abe643ad707498
+r
+Bapp/src/main/java/com/mustafa/bankbranch/data/dto/BranchListDto.kt,3/8/3870653ff1d09ffef835d4fca393735d7e579fa5
+@
+build.gradle.kts,d/b/dbcff70658daf80b53ce624f6adcaa529df5ed8d
+g
+7app/src/main/java/com/mustafa/bankbranch/di/Constant.kt,a/7/a7dbeabc8fc7beb95d7bb07f08d9dba37c3c3341
+X
+(gradle/wrapper/gradle-wrapper.properties,f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
+h
+8app/src/main/java/com/mustafa/bankbranch/di/AppModule.kt,1/d/1d574ed9235f3b78bd2157831b236dd42b95d5ff
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8/8/88a9255124c95bdc913197c120a8d560edc59c8e
+S
+#.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
