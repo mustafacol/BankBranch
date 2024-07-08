@@ -1,5 +1,7 @@
-package com.mustafa.bankbranch.di
+package com.mustafa.bankbranch.data
 
+import com.mustafa.bankbranch.data.remote.BankBranchApi
+import com.mustafa.bankbranch.domain.Constant
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -10,6 +12,7 @@ val networkModule = module {
     single { provideHttpClient() }
     single { provideConverterFactory() }
     single { provideRetrofit(get(), get()) }
+    single { provideApi(get()) }
 }
 
 fun provideHttpClient(): OkHttpClient {
@@ -33,4 +36,8 @@ fun provideRetrofit(
         .client(okHttpClient)
         .addConverterFactory(gsonConverterFactory)
         .build()
+}
+
+fun provideApi(retrofit: Retrofit): BankBranchApi {
+    return retrofit.create(BankBranchApi::class.java)
 }

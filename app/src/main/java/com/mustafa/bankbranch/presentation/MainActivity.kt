@@ -1,4 +1,4 @@
-package com.mustafa.bankbranch
+package com.mustafa.bankbranch.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

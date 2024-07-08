@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "468861462608",
+    "project_id": "bankbranch-49d97",
+    "storage_bucket": "bankbranch-49d97.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:468861462608:android:9122ceb9c2a8f16359c955",
+        "android_client_info": {
+          "package_name": "com.mustafa.bankbranch"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvBZJW-wvpvEL1syBQ2gVLixkbPMVo3yA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -66,6 +67,7 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.koin.android)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.firebase.analytics)
 
 
     testImplementation(libs.junit)
