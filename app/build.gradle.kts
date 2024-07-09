@@ -66,6 +66,8 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.koin.android)
+    implementation (libs.koin.androidx.compose)
+
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.firebase.analytics)
 
