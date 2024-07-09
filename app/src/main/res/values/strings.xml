@@ -3,4 +3,11 @@
     <string name="error_empty_list">Cannot get branch information.</string>
     <string name="error_unknown">Something went wrong.</string>
     <string name="try_again">Try Again</string>
+    <string name="bank_code">Bank Code</string>
+    <string name="address">Address</string>
+    <string name="city">City</string>
+    <string name="district">District</string>
+    <string name="postal_code">Postal Code</string>
+    <string name="region_coordinator">Region Coordinator</string>
+    <string name="closest_atm">Closest Atm</string>
 </resources>

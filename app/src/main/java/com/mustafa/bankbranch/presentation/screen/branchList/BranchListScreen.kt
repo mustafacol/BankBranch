@@ -34,12 +34,11 @@ import com.mustafa.bankbranch.data.dto.BranchItem
 import com.mustafa.bankbranch.presentation.components.BranchItemCard
 import com.mustafa.bankbranch.presentation.components.BranchItemSearchbar
 import com.mustafa.bankbranch.presentation.components.UiText
-import com.mustafa.bankbranch.presentation.navigation.BranchDetailScreen
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun BranchListScreen(
-    navController: NavController,
+fun MainScreen(
+    onItemClick: (BranchItem) -> Unit,
     viewModel: BranchListViewModel = koinViewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -80,8 +79,8 @@ fun BranchListScreen(
                         items = state.branchList,
                         key = BranchItem::id
                     ) {
-                        BranchItemCard(branch = it, onClick = {
-                            navController.navigate(BranchDetailScreen(it))
+                        BranchItemCard(branch = it, onClick = { branchItem ->
+                            onItemClick(branchItem)
                         })
                     }
                 }

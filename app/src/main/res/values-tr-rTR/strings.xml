@@ -3,4 +3,12 @@
     <string name="error_empty_list">Şube verileri alınamıyor.</string>
     <string name="error_unknown">Bilinmeyen bir hata oluştu.</string>
     <string name="try_again">Tekrar Deneyiniz</string>
+    <string name="bank_code">Banka Kodu</string>
+    <string name="address">Adres</string>
+    <string name="city">Şehir</string>
+    <string name="district">İlçe</string>
+    <string name="postal_code">Posta Kodu</string>
+    <string name="region_coordinator">Region Coordinator</string>
+    <string name="closest_atm">En Yakın Atm</string>
+
 </resources>
