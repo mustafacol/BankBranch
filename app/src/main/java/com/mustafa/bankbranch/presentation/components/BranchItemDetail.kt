@@ -3,6 +3,7 @@ package com.mustafa.bankbranch.presentation.components
 import android.content.Context
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -28,6 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mustafa.bankbranch.R
 import com.mustafa.bankbranch.data.dto.BranchItem
+import com.mustafa.bankbranch.ui.theme.White
 
 
 @Composable
@@ -40,9 +42,9 @@ fun ItemDetailForm(branchItem: BranchItem, onNavigateClick: (Context, String) ->
         horizontalAlignment = Alignment.CenterHorizontally
 
     ) {
-        BranchDetailTopBar(title = branchItem.addressName)
+        BranchDetailHeader(title = branchItem.addressName)
 
-        ItemButton(text = "Yol Tarifi Al") {
+        ItemButton(text = stringResource(R.string.get_directions)) {
             onNavigateClick(context, branchItem.address)
         }
         Spacer(modifier = Modifier.height(16.dp))
@@ -135,12 +137,15 @@ fun ItemDetailRow(
 fun ItemButton(text: String, onClick: () -> Unit) {
     OutlinedButton(
         shape = RoundedCornerShape(8.dp),
-        border = BorderStroke(1.dp, MaterialTheme.colorScheme.tertiary),
-        colors = ButtonDefaults.outlinedButtonColors(contentColor = MaterialTheme.colorScheme.tertiary),
+        border = BorderStroke(
+            1.dp,
+            if (!isSystemInDarkTheme()) White else MaterialTheme.colorScheme.tertiary
+        ),
+        colors = ButtonDefaults.outlinedButtonColors(contentColor = if (!isSystemInDarkTheme()) White else MaterialTheme.colorScheme.tertiary),
         onClick = {
             onClick()
         }) {
-        Text(text = "Yol Tarifi Al")
+        Text(text = text, style = MaterialTheme.typography.labelMedium)
     }
 }
 

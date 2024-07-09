@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mustafa.bankbranch.data.dto.BranchItem
 import com.mustafa.bankbranch.domain.use_case.GetBankBranchListUseCase
+import com.mustafa.bankbranch.domain.use_case.LogEventUseCase
 import com.mustafa.bankbranch.domain.util.Resource
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -11,7 +12,8 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class BranchListViewModel(
-    private val getBankBranchListUseCase: GetBankBranchListUseCase
+    private val getBankBranchListUseCase: GetBankBranchListUseCase,
+    private val logEventUseCase: LogEventUseCase
 ) : ViewModel() {
     private val _state = MutableStateFlow(BranchListState())
     val state = _state.asStateFlow()
@@ -38,19 +40,16 @@ class BranchListViewModel(
 
     fun onEvent(event: BranchListEvent) {
         when (event) {
-            is BranchListEvent.NavigateDetail -> {
-            }
-
             is BranchListEvent.SearchBranch -> {
                 searchBranch(event.queryString)
             }
 
-            is BranchListEvent.ShowError -> {
-
-            }
-
             BranchListEvent.TryAgain -> {
                 getBranchList()
+            }
+
+            is BranchListEvent.BranchItemClicked -> {
+                logEventUseCase(event.branchItem)
             }
         }
     }

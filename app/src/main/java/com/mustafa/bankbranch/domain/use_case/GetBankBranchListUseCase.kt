@@ -6,6 +6,7 @@ import com.mustafa.bankbranch.domain.repository.BankBranchRepository
 import com.mustafa.bankbranch.domain.util.NoAvailableDataException
 import com.mustafa.bankbranch.domain.util.Resource
 import com.mustafa.bankbranch.presentation.components.UiText
+import java.net.UnknownHostException
 
 class GetBankBranchListUseCase(
     private val bankBranchRepository: BankBranchRepository
@@ -27,8 +28,13 @@ class GetBankBranchListUseCase(
             }
         } catch (unknownError: UnknownError) {
             return Resource.Error(UiText.DynamicString(unknownError.message ?: ""))
-        } catch (ex: NoAvailableDataException) {
+        } catch (e: NoAvailableDataException) {
             return Resource.Error(UiText.StringResource(R.string.error_empty_list))
+        } catch (e: UnknownHostException) {
+            return Resource.Error(UiText.StringResource(R.string.please_check_connection))
+        } catch (e: Exception) {
+            return Resource.Error(UiText.StringResource(R.string.error_unknown))
         }
+
     }
 }

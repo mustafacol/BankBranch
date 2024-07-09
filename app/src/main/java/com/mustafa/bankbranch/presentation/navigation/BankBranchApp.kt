@@ -4,20 +4,27 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.mustafa.bankbranch.data.dto.BranchItem
-import com.mustafa.bankbranch.presentation.screen.branchDetail.DetailScreen
+import com.mustafa.bankbranch.domain.network_connectivity.ConnectivityObserver
+import com.mustafa.bankbranch.presentation.components.AlertDialogComponent
+import com.mustafa.bankbranch.presentation.screen.branchDetail.BranchDetailScreen
 import com.mustafa.bankbranch.presentation.screen.branchList.MainScreen
 
 
 @Composable
-fun BankBranchApp() {
+fun BankBranchApp(connectivityStatus: ConnectivityObserver.Status) {
     val navController = rememberNavController()
-    val context = LocalContext.current
+
+    CheckConnection(connectivityStatus = connectivityStatus)
+
     NavHost(navController = navController, startDestination = NavRoute.BranchListScreen.route) {
         composable(route = NavRoute.BranchListScreen.route) {
             MainScreen(
@@ -31,10 +38,26 @@ fun BankBranchApp() {
         ) {
             navController.previousBackStackEntry?.savedStateHandle?.get<BranchItem>("branchItem")
                 ?.let { branchItem ->
-                    DetailScreen(branchItem = branchItem, onNavigateClick = ::navigateToMaps)
+                    BranchDetailScreen(
+                        branchItem = branchItem,
+                        onNavigateBack = { navController.popBackStack() },
+                        onNavigateClick = ::navigateToMaps
+                    )
                 }
 
         }
+    }
+}
+
+@Composable
+fun CheckConnection(connectivityStatus: ConnectivityObserver.Status) {
+    var showConnectivityDialog by remember { mutableStateOf(false) }
+    showConnectivityDialog = when (connectivityStatus) {
+        ConnectivityObserver.Status.Available -> false
+        ConnectivityObserver.Status.Unavailable, ConnectivityObserver.Status.Lost -> true
+    }
+    if (showConnectivityDialog) {
+        AlertDialogComponent()
     }
 }
 
@@ -50,3 +73,4 @@ private fun navigateToMaps(context: Context, address: String) {
     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
     context.startActivity(intent)
 }
+

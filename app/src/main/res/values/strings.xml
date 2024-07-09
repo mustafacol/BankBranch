@@ -10,4 +10,8 @@
     <string name="postal_code">Postal Code</string>
     <string name="region_coordinator">Region Coordinator</string>
     <string name="closest_atm">Closest Atm</string>
+    <string name="get_directions">Get Directions</string>
+    <string name="please_check_connection">Please Check Internet Connection</string>
+    <string name="internet_connection">Internet connection</string>
+
 </resources>

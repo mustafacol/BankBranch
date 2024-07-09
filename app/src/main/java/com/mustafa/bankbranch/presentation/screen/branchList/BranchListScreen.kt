@@ -28,7 +28,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.navigation.NavController
 import com.mustafa.bankbranch.R
 import com.mustafa.bankbranch.data.dto.BranchItem
 import com.mustafa.bankbranch.presentation.components.BranchItemCard
@@ -38,8 +37,8 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun MainScreen(
-    onItemClick: (BranchItem) -> Unit,
     viewModel: BranchListViewModel = koinViewModel(),
+    onItemClick: (BranchItem) -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     Scaffold(modifier = Modifier
@@ -61,7 +60,7 @@ fun MainScreen(
 
             if (state.isLoading) {
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    CircularProgressIndicator()
+                    CircularProgressIndicator(color = MaterialTheme.colorScheme.secondary)
                 }
             }
             state.error?.let {
@@ -81,6 +80,7 @@ fun MainScreen(
                     ) {
                         BranchItemCard(branch = it, onClick = { branchItem ->
                             onItemClick(branchItem)
+                            viewModel.onEvent(BranchListEvent.BranchItemClicked(branchItem))
                         })
                     }
                 }

@@ -10,5 +10,8 @@
     <string name="postal_code">Posta Kodu</string>
     <string name="region_coordinator">Region Coordinator</string>
     <string name="closest_atm">En Yakın Atm</string>
+    <string name="get_directions">Yol Tarifi Al</string>
+    <string name="please_check_connection">Lütfen İnternet Bağlantınızı Kontrol Edin</string>
+    <string name="internet_connection">İnternet Bağlantısı</string>
 
 </resources>

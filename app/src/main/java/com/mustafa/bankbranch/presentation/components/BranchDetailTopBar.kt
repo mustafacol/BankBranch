@@ -1,37 +1,49 @@
 package com.mustafa.bankbranch.presentation.components
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.mustafa.bankbranch.R
+import com.mustafa.bankbranch.ui.theme.Blue
 
 @Composable
-fun BranchDetailTopBar(title: String) {
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(60.dp)
-            .padding(8.dp)
-            .clip(RoundedCornerShape(16.dp))
-            .background(MaterialTheme.colorScheme.secondary),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(
-
-            text = title,
-            style = MaterialTheme.typography.titleMedium,
-            textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.primary
+fun BranchDetailTopBar(
+    onNavigateBack: () -> Unit
+) {
+    Box(modifier = Modifier.fillMaxWidth()) {
+        Image(
+            modifier = Modifier.clip(
+                RoundedCornerShape(
+                    bottomStart = 8.dp,
+                    bottomEnd = 8.dp
+                )
+            ),
+            painter = painterResource(id = R.drawable.branch_image),
+            contentDescription = null
         )
+        IconButton(
+            modifier = Modifier
+                .size(50.dp)
+                .clip(CircleShape)
+                .background(Color.White.copy(alpha = 0.5f)),
+            onClick = { onNavigateBack() }) {
+            Icon(imageVector = Icons.Default.ArrowBack, contentDescription = null, tint = Blue)
+
+        }
+
     }
 }

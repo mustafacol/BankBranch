@@ -66,12 +66,11 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.koin.android)
-    implementation (libs.koin.androidx.compose)
+    implementation(libs.koin.androidx.compose)
 
     implementation(libs.kotlinx.serialization.json)
-    implementation(libs.firebase.analytics)
-
-
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytic)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

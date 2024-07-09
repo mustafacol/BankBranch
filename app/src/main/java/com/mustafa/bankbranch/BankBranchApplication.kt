@@ -1,6 +1,7 @@
 package com.mustafa.bankbranch
 
 import android.app.Application
+import com.mustafa.bankbranch.domain.di.firebaseModule
 import com.mustafa.bankbranch.domain.di.networkModule
 import com.mustafa.bankbranch.domain.di.repositoryModule
 import com.mustafa.bankbranch.domain.di.useCaseModule
@@ -16,7 +17,7 @@ class BankBranchApplication : Application() {
         startKoin {
             androidContext(this@BankBranchApplication)
             androidLogger(Level.DEBUG)
-            modules(networkModule, repositoryModule, viewModelModule, useCaseModule)
+            modules(networkModule, repositoryModule, viewModelModule, useCaseModule, firebaseModule)
         }
     }
 }
